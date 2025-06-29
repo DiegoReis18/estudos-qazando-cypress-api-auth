@@ -1,0 +1,12 @@
+name: Cypress api estudos
+on:
+  pull_request: ##pipeline vai rodar quando dar um pull-request na master
+    branches: [master]
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest  ##em que computador vai ser executado o teste
+    steps: ##passo a passo para o computador executar
+      - name: Clonar o projeto
+        uses: actions/checkout@v4
+      - name: Cypress run
+        uses: cypress-io/github-action@v6
