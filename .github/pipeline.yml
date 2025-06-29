@@ -1,12 +1,15 @@
-name: End-to-end tests
-on: push
+name: Cypress api estudos
+on:
+  pull_request: ##pipeline vai rodar quando dar um pull-request na master
+    branches: [master]
 jobs:
   cypress-run:
-    runs-on: ubuntu-24.04
-    steps:
-      - name: Checkout
+    runs-on: ubuntu-latest  ##em que computador vai ser executado o teste
+    steps: ##passo a passo para o computador executar
+      - name: Clonar o projeto
         uses: actions/checkout@v4
-      # Install npm dependencies, cache them correctly
-      # and run all Cypress tests
       - name: Cypress run
         uses: cypress-io/github-action@v6
+#     - name: Imprimir - exemplo
+#      run: ##quando não é uma action
+#          echo Diego testes - estudo
